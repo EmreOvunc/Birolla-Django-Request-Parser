@@ -1,7 +1,10 @@
 # Birolla-Django-Request-Parser
 ### Birol for your requests... Birolla is a basic request parser written in Django. 
 
-#### The only purpose of the project is to copy headers and uri informations with a single click
+#### The only purpose of the project is to copy headers and uri informations with a single click!
+
++ [x] Parsing all request types
++ [x] Anonymization by replacing the IP addresses in the header information with *127.0.0.1*.
 
 Source codes were written quickly for business purposes... :hourglass:
 
