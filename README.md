@@ -11,6 +11,7 @@ git clone https://github.com/EmreOvunc/Birolla-Django-Request-Parser.git
 cd Birolla-Django-Request-Parser
 sudo pip3 install virtualenv
 source myvenv/bin/activate
+python3 manage.py runserver
 ```
 
 ## Usage 
