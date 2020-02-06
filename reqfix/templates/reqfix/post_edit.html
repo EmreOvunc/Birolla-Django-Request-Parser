@@ -1,0 +1,141 @@
+<html>
+{% extends 'reqfix/base.html' %}
+
+{% block content %}
+
+<style>
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+
+<script>
+function birolla() {
+  alert("Hey, requestini birolladın!");
+}
+</script>
+
+<div class="row">
+<div class="column">
+    <form method="POST" class="post-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <button type="submit" onclick="birolla()" style="cursor: pointer; margin-left: 16%; width: 73%; height: 6%; color: cornflowerblue"><b>Birolla</b></button>
+
+    </form>
+</div>
+<div class="column">
+    <div class="post">
+                <b><u>Method:</u></b>
+                &nbsp;<div id="a" style="cursor: copy;" onclick="copyDivToClipboarda()">{{ method }}</div>
+
+                <b><u>Request URI:</u></b>
+                &nbsp;<div id="b" style="cursor: copy;" onclick="copyDivToClipboardb()">{{ requesturi }}</div>
+
+                <b><u>Message Body:</u></b>
+                &nbsp;<div id="d" style="cursor: copy;" onclick="copyDivToClipboardd()">{{ boddies }}</div>
+
+                <b><u>Headers:</u></b>
+                &nbsp;<div id="c" style="cursor: copy;" onclick="copyDivToClipboardc()">{{ headers }}</div>
+    </div>
+</div>
+    <div style="color: darkgrey"> Developed by @EmreOvunc</div>
+</div>
+    <script>
+document.getElementById("b").addEventListener("mouseover", mouseOver);
+document.getElementById("b").addEventListener("mouseout", mouseOut);
+
+
+function mouseOver() {
+    document.getElementById("b").style.color = "red";
+}
+
+function mouseOut() {
+    document.getElementById("b").style.color = "black";
+
+}
+</script>
+<script>
+document.getElementById("a").addEventListener("mouseover", mouseOver);
+document.getElementById("a").addEventListener("mouseout", mouseOut);
+
+function mouseOver() {
+    document.getElementById("a").style.color = "red";
+}
+
+function mouseOut() {
+    document.getElementById("a").style.color = "black";
+
+}
+</script>
+    <script>
+document.getElementById("c").addEventListener("mouseover", mouseOver);
+document.getElementById("c").addEventListener("mouseout", mouseOut);
+
+function mouseOver() {
+    document.getElementById("c").style.color = "red";
+}
+
+function mouseOut() {
+    document.getElementById("c").style.color = "black";
+
+}
+</script>
+<script>
+document.getElementById("d").addEventListener("mouseover", mouseOver);
+document.getElementById("d").addEventListener("mouseout", mouseOut);
+
+function mouseOver() {
+    document.getElementById("d").style.color = "red";
+}
+
+function mouseOut() {
+    document.getElementById("d").style.color = "black";
+
+}
+</script>
+
+    <script>
+    function copyDivToClipboarda() {
+        var range = document.createRange();
+        range.selectNode(document.getElementById("a"));
+        window.getSelection().removeAllRanges(); // clear current selection
+        window.getSelection().addRange(range); // to select text
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();// to deselect
+    }
+        function copyDivToClipboardb() {
+        var range = document.createRange();
+        range.selectNode(document.getElementById("b"));
+        window.getSelection().removeAllRanges(); // clear current selection
+        window.getSelection().addRange(range); // to select text
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();// to deselect
+    }
+        function copyDivToClipboardc() {
+        var range = document.createRange();
+        range.selectNode(document.getElementById("c"));
+        window.getSelection().removeAllRanges(); // clear current selection
+        window.getSelection().addRange(range); // to select text
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();// to deselect
+    }
+        function copyDivToClipboardd() {
+        var range = document.createRange();
+        range.selectNode(document.getElementById("d"));
+        window.getSelection().removeAllRanges(); // clear current selection
+        window.getSelection().addRange(range); // to select text
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();// to deselect
+    }
+</script>
+{% endblock %}
+</html>
