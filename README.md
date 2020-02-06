@@ -5,6 +5,8 @@
 
 Source codes were written quickly for business purposes... :hourglass:
 
+(Django Admin -> admin:admin)
+
 ## Installation
 ```
 git clone https://github.com/EmreOvunc/Birolla-Django-Request-Parser.git
