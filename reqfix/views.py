@@ -33,9 +33,9 @@ def anonimizer(str):
                     anonstr += ":" + str.split("://")[1].split(":")[1]
                 else:
                     if len(str.split("/")) > 3:
-                        anonstr += ":" + str.split("://")[1].split("/")[1]
+                        anonstr += "/" + str.split("://")[1].split("/")[1]
                         for strs in range(3, len(str.split("/"))):
-                            anonstr += str.split("/")[strs]
+                            anonstr += "/" + str.split("/")[strs]
                 return anonstr
         return str
 
