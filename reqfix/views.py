@@ -82,7 +82,7 @@ def post_new(request):
         except:
             headers = "ERROR-POST "
 
-    elif method == "GET":
+    else:
         for header in range(1, len(data.split("\r\n"))):
             if data.split("\r\n")[header] == "":
                 break
