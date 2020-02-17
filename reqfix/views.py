@@ -14,29 +14,32 @@ def anonimizer(str):
 
     else:
         if "http" in str:
-            if ":" in str.split("://")[1]:
-                if search(regex, str.split("://")[1].split(":")[0]):
+            try:
+                if ":" in str.split("://")[1]:
+                    if search(regex, str.split("://")[1].split(":")[0]):
+                        if "https" in str.split("://")[0]:
+                            anonstr = "https://127.0.0.1"
+                        elif "http" in str.split("://")[0]:
+                            anonstr = "http://127.0.0.1"
+                        if len(str.split("://")[1].split(":")) > 1:
+                            anonstr += ":" + str.split("://")[1].split(":")[1]
+                        return anonstr
+
+                else:
                     if "https" in str.split("://")[0]:
                         anonstr = "https://127.0.0.1"
                     elif "http" in str.split("://")[0]:
                         anonstr = "http://127.0.0.1"
                     if len(str.split("://")[1].split(":")) > 1:
                         anonstr += ":" + str.split("://")[1].split(":")[1]
+                    else:
+                        if len(str.split("/")) > 3:
+                            anonstr += "/" + str.split("://")[1].split("/")[1]
+                            for strs in range(3, len(str.split("/"))):
+                                anonstr += "/" + str.split("/")[strs]
                     return anonstr
-
-            else:
-                if "https" in str.split("://")[0]:
-                    anonstr = "https://127.0.0.1"
-                elif "http" in str.split("://")[0]:
-                    anonstr = "http://127.0.0.1"
-                if len(str.split("://")[1].split(":")) > 1:
-                    anonstr += ":" + str.split("://")[1].split(":")[1]
-                else:
-                    if len(str.split("/")) > 3:
-                        anonstr += "/" + str.split("://")[1].split("/")[1]
-                        for strs in range(3, len(str.split("/"))):
-                            anonstr += "/" + str.split("/")[strs]
-                return anonstr
+            except:
+                pass
         return str
 
 
