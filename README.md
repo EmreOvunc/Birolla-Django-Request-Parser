@@ -15,7 +15,9 @@ Source codes were written quickly for business purposes... :hourglass:
 git clone https://github.com/EmreOvunc/Birolla-Django-Request-Parser.git
 cd Birolla-Django-Request-Parser
 sudo pip3 install virtualenv
+python3 -m venv myvenv
 source myvenv/bin/activate
+pip3 install -r requirements.txt
 python3 manage.py runserver
 ```
 
